@@ -1,7 +1,16 @@
 HELP.md
 .gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
+
+/build/classes
+/build/idea-sandbox
+/build/kotlin
+/build/libs
+/build/libsSearchableOptions
+/build/patchedPluginXmlFiles
+/build/resources
+/build/searchableOptions
+/build/tmp
+
 !**/src/main/**
 !**/src/test/**
 
@@ -41,3 +50,4 @@ out/
 *.rar
 
 !depInjectAngularPlugin*.zip
+
