@@ -39,3 +39,5 @@ out/
 *.zip
 *.tar.gz
 *.rar
+
+!depInjectAngularPlugin.zip
