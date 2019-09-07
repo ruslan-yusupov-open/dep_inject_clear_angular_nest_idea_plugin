@@ -31,24 +31,33 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
-        <action
-                id="com.leadcm.plugins.InjectDependencyAction"
-                class="InjectDependencyAction"
-                text="INJECT DEPENDENCY"
-                description="Inject selected class as Angular/Nest dependency to the constructor">
-            <add-to-group group-id="EditMenu" anchor="first"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SEMICOLON"/>
-        </action>
-        <action
-                id="com.leadcm.plugins.ClearUnusedDependenciesAction"
-                class="ClearUnusedDependenciesAction"
-                text="CLEAR UNUSED DEPENDENCIES"
-                description="Clear unused Angular/Nest dependencies from the constructor">
-            <add-to-group group-id="EditMenu" anchor="first"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt QUOTE"/>
-        </action>
-
+        <group
+                id="com.leadcm.plugins.actions.AngularNestDependencyInjections"
+                text="Angular&amp;Nest Dependency Injections"
+                popup="true">
+            <add-to-group group-id="CodeMenu" anchor="last"/>
+            <!-- Add your actions here -->
+            <action
+                    id="com.leadcm.plugins.InjectDependencyAction"
+                    class="InjectDependencyAction"
+                    text="Inject Dependency"
+                    description="Inject selected class as Angular/Nest dependency to the constructor">
+                <add-to-group
+                        group-id="com.leadcm.plugins.actions.AngularNestDependencyInjections"
+                        anchor="last"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SEMICOLON"/>
+            </action>
+            <action
+                    id="com.leadcm.plugins.ClearUnusedDependenciesAction"
+                    class="ClearUnusedDependenciesAction"
+                    text="Clear Unused Dependencies"
+                    description="Clear unused Angular/Nest dependencies from the constructor">
+                <add-to-group
+                        group-id="com.leadcm.plugins.actions.AngularNestDependencyInjections"
+                        anchor="last"/>
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt QUOTE"/>
+            </action>
+        </group>
     </actions>
 
     <!-- Enable plugin for all products -->
