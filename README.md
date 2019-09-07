@@ -1,6 +1,8 @@
 # Inject and clear Angular/Nest dependencies Intellij Plugin
 
 ## Description
+![gif with demo](injectAndClearAngularPlugin.gif)
+
 This plugin provides two actions -
    1) converts selected class to angular dependency in the constructor
    2) remove unused dependencies from the constructor
@@ -10,6 +12,9 @@ This plugin provides two actions -
 * Any Intellij editor starting form 2019.2 to use
 
 ## How use ready distribution
+Video manual (Russian)
+https://www.youtube.com/watch?v=py2p0NKX4bI
+
 1) Download the zip file from the build/distribution folder
 2) Go to File/Plugins, click the gear icon, press "Install Plugin from Disk"
 3) Default hotkeys are Ctrl+; and Ctrl+', you may reassign
