@@ -1,0 +1,59 @@
+<idea-plugin>
+    <id>com.leadcm.plugins</id>
+    <name>Inject and clear Angular/Nest dependencies</name>
+    <version>0.1</version>
+    <vendor email="ruslan@leadcm.com" url="https://leadcm.com">LeadCM</vendor>
+
+    <description><![CDATA[
+        This plugin provides two actions -
+        1) converts selected class to angular dependency in the constructor
+        2) remove unused dependencies from the constructor
+    ]]></description>
+
+    <change-notes><![CDATA[
+      This plugin provides two actions -
+        1) converts selected class to angular dependency in the constructor
+        2) remove unused dependencies from the constructor
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action
+                id="com.leadcm.plugins.InjectDependencyAction"
+                class="InjectDependencyAction"
+                text="INJECT DEPENDENCY"
+                description="Inject selected class as Angular/Nest dependency to the constructor">
+            <add-to-group group-id="EditMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SEMICOLON"/>
+        </action>
+        <action
+                id="com.leadcm.plugins.ClearUnusedDependenciesAction"
+                class="ClearUnusedDependenciesAction"
+                text="CLEAR UNUSED DEPENDENCIES"
+                description="Clear unused Angular/Nest dependencies from the constructor">
+            <add-to-group group-id="EditMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt QUOTE"/>
+        </action>
+
+    </actions>
+
+    <!-- Enable plugin for all products -->
+    <depends>com.intellij.modules.lang</depends>
+    <!--    <depends>tslint</depends>-->
+    <!-- This enables the PSI capability for JavaScript -->
+
+</idea-plugin>
