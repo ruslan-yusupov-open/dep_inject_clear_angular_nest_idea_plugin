@@ -40,4 +40,4 @@ out/
 *.tar.gz
 *.rar
 
-!depInjectAngularPlugin.zip
+!depInjectAngularPlugin*.zip
