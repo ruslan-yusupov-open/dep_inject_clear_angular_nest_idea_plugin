@@ -9,7 +9,7 @@ This plugin provides two actions -
 
 ## Prerequisites
 * you need Intellij IDEA to build that
-* Any Intellij editor starting form 2019.2 to use
+* Any Intellij editor starting from 2019.3.1 to use
 
 ## How use ready distribution
 Video manual (Russian)
