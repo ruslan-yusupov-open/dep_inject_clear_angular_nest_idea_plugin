@@ -21,25 +21,35 @@ class ClearUnusedDependenciesAction : AnAction() {
             val unusedServices = services
                 .filter { it.groupValues[1] == it.groupValues[2].smallFirstLetter() }
                 .filter {
-                    (it.groupValues[1].toRegex().findAll(text).count()
-                            // don't count commented lines
-                            - "[ \t]*//.*${it.groupValues[1]}".toRegex().findAll(text).count()) == 1
+                    // don't count commented lines
+                    (
+                        it.groupValues[1].toRegex().findAll(text)
+                            .count() - "[ \t]*//.*${it.groupValues[1]}".toRegex()
+                            .findAll(text).count()
+                        ) == 1
                 }
                 .map { it.value }
                 .toList()
                 .asReversed()
 
             if (unusedServices.isNotEmpty()) {
-                CommandProcessor.getInstance().executeCommand(project, {
-                    ApplicationManager.getApplication().runWriteAction {
-                        // Assign the variable <selection> = _<selection>_;
+                CommandProcessor.getInstance().executeCommand(
+                    project,
+                    {
+                        ApplicationManager.getApplication().runWriteAction {
+                            // Assign the variable <selection> = _<selection>_;
 
-                        unusedServices.forEach {
-                            if (text.indexOf(it) > -1)
-                                document.deleteString(text.indexOf(it), text.indexOf(it) + it.length)
+                            unusedServices.forEach {
+                                if (text.indexOf(it) > -1) document.deleteString(
+                                    text.indexOf(it),
+                                    text.indexOf(it) + it.length
+                                )
+                            }
                         }
-                    }
-                }, "delete services", null)
+                    },
+                    "Delete Services",
+                    null
+                )
             }
         }
     }

@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.leadcm.plugins</id>
-    <name>Inject and clear Angular/Nest dependencies</name>
+    <name>Inject and Clear Angular/Nest Dependencies</name>
     <version>0.1</version>
     <vendor email="ruslan@leadcm.com" url="https://leadcm.com">LeadCM</vendor>
 
@@ -17,18 +17,20 @@
     ]]>
     </change-notes>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="173.0"/>
-
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
+        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
     </extensions>
+
+    <applicationListeners>
+        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+
 
     <actions>
         <group
@@ -59,10 +61,4 @@
             </action>
         </group>
     </actions>
-
-    <!-- Enable plugin for all products -->
-    <depends>com.intellij.modules.lang</depends>
-    <!--    <depends>tslint</depends>-->
-    <!-- This enables the PSI capability for JavaScript -->
-
 </idea-plugin>
