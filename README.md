@@ -1,11 +1,13 @@
 # Inject and clear Angular/Nest dependencies Intellij Plugin
 
 ## Description
+<!-- Plugin description -->
 ![gif with demo](injectAndClearAngularPlugin.gif)
 
 This plugin provides two actions -
    1) converts selected class to angular dependency in the constructor
    2) remove unused dependencies from the constructor
+<!-- Plugin description end -->
 
 ## Prerequisites
 * you need Intellij IDEA to build that

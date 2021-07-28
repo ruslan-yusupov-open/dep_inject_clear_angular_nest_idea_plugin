@@ -1,6 +1,8 @@
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
+import com.intellij.openapi.actionSystem.ActionManager
+import com.intellij.openapi.actionSystem.IdeActions
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.command.CommandProcessor
 
@@ -45,6 +47,9 @@ class ClearUnusedDependenciesAction : AnAction() {
                                     text.indexOf(it) + it.length
                                 )
                             }
+
+                            val a1 = ActionManager.getInstance().getAction(IdeActions.ACTION_EDITOR_REFORMAT)
+                            a1.actionPerformed(e)
                         }
                     },
                     "Delete Services",
